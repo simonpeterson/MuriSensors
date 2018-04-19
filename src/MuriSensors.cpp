@@ -1,5 +1,4 @@
 #include "MuriSensors.h"
-template<class sensor_data_format> Sensor<sensor_data_format>::Sensor(){}
 template<class sensor_data_format> void Sensor<sensor_data_format>::sendCommand(){}
 template<class sensor_data_format> void Sensor<sensor_data_format>::init(){}
 template<class sensor_data_format> void Sensor<sensor_data_format>::update(){}

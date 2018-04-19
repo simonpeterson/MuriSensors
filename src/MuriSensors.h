@@ -6,9 +6,12 @@
 #include <DallasTemperature.h>
 #include <OneWire.h>
 #include <TinyGPS++.h>
-template <class sensor_data_format>class Sensor {
+struct AbstractSensor{
+	virtual ~AbstractSensor() = 0;
+};
+template <class sensor_data_format>class Sensor: public AbstractSensor {
   protected:
-    virtual Sensor();
+    virtual ~Sensor() = 0;
     //identifier
     const char * Name;
     //delay for reading sensor
