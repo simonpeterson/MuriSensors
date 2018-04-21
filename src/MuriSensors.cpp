@@ -1,10 +1,12 @@
 #include "MuriSensors.h"
+AbstractSensor::~AbstractSensor(){}
+
 template<class sensor_data_format> void Sensor<sensor_data_format>::sendCommand(){}
 template<class sensor_data_format> void Sensor<sensor_data_format>::init(){}
 template<class sensor_data_format> void Sensor<sensor_data_format>::update(){}
 template<class sensor_data_format> sensor_data_format Sensor<sensor_data_format>::getData(){}
 template<class sensor_data_format> void Sensor<sensor_data_format>::setData(sensor_data_format toSet){}
-
+template<class sensor_data_format> Sensor<sensor_data_format>::~Sensor(){}
 //accelerometer functions
 Accelerometer::Accelerometer(char * Name, int Delay, int * accelerations){
         //feed in so that we are modifying global variables
@@ -13,7 +15,8 @@ Accelerometer::Accelerometer(char * Name, int Delay, int * accelerations){
         this -> Delay = Delay;
         adxl = ADXL345();
         this -> Data = &accelerations[0];
-      }
+}
+Accelerometer::~Accelerometer(){}
 void Accelerometer::init(){
         adxl.powerOn();    
         //what does this do? ask Garret         
@@ -36,6 +39,7 @@ temperatureSensor::temperatureSensor(char* Name, int Pin, int Delay, String *tem
     OneWire oneWire(Pin);
     sensor = DallasTemperature(&oneWire);
 }
+temperatureSensor::~temperatureSensor(){}
 void temperatureSensor::init(){
     sensor.begin();
 }
@@ -54,6 +58,7 @@ GPS::GPS(char * Name, HardwareSerial * port, int baud){
     this -> Name = Name;
     this -> baud = baud;
 }
+GPS::~GPS(){}
 void GPS::init(){
     port -> begin(baud);
 }

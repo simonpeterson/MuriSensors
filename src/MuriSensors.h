@@ -11,7 +11,7 @@ struct AbstractSensor{
 };
 template <class sensor_data_format>class Sensor: public AbstractSensor {
   protected:
-    virtual ~Sensor() = 0;
+    ~Sensor() = 0;
     //identifier
     const char * Name;
     //delay for reading sensor
@@ -33,6 +33,7 @@ template <class sensor_data_format>class Sensor: public AbstractSensor {
 };
 class Accelerometer: public Sensor<int *> {  
   public:
+      ~Accelerometer();
       Accelerometer(char * Name, int Delay, int * accelerations);
       //accelerometer class
       ADXL345 adxl;
@@ -45,6 +46,7 @@ class Accelerometer: public Sensor<int *> {
 };
 class temperatureSensor: public Sensor<String>{
   public:
+    ~temperatureSensor();
     DallasTemperature sensor;
     temperatureSensor(char* Name, int Pin, int Delay, String *temperature);
     void init();
@@ -57,6 +59,7 @@ class temperatureSensor: public Sensor<String>{
 //file
 class GPS: public Sensor<String>{
   public:
+      ~GPS();
       TinyGPSPlus GPS;
       //change to software serial if using software serial
       HardwareSerial * port;
