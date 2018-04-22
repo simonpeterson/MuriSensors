@@ -9,6 +9,7 @@
 struct AbstractSensor{
 	virtual ~AbstractSensor() = 0;
 	virtual void update() = 0;
+	virtual void init() = 0;
 };
 template <class sensor_data_format>class Sensor: public AbstractSensor {
   protected:

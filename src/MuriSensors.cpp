@@ -3,6 +3,7 @@
 //these functions have to be declared for the vector to work
 AbstractSensor::~AbstractSensor(){}
 void AbstractSensor::update(){}
+void AbstractSensor::init(){}
 
 //template class functions
 template<class sensor_data_format> void Sensor<sensor_data_format>::sendCommand(){}
