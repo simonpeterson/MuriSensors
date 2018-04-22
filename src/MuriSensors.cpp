@@ -63,13 +63,14 @@ String temperatureSensor::getData(){return Data;}
 //GPS functions
 
 
-GPS::GPS(char * Name, HardwareSerial * port, int baud){
+GPS_sensor::GPS_sensor(char * Name, HardwareSerial * port, int baud, TinyGPSPlus GPS){
     this -> port = port;
     this -> Name = Name;
     this -> baud = baud;
+	this -> GPS = GPS;
 }
-GPS::~GPS(){}
-void GPS::init(){
+GPS_sensor::~GPS_sensor(){}
+void GPS_sensor::init(){
     port -> begin(baud);
 }
        

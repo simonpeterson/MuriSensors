@@ -59,14 +59,14 @@ class temperatureSensor: public Sensor<String>{
 //because we are already using the tiny GPS++ library (once again, 
 //it is a custom libaray whose link can be found in the TungstenCut main
 //file
-class GPS: public Sensor<String>{
+class GPS_sensor: public Sensor<String>{
   public:
-      ~GPS();
+      ~GPS_sensor();
       TinyGPSPlus GPS;
       //change to software serial if using software serial
       HardwareSerial * port;
       int baud;
-      GPS(char * Name, HardwareSerial * port, int baud);
+      GPS_sensor(char * Name, HardwareSerial * port, int baud, TinyGPSPlus GPS);
       void init();
       
     private:
