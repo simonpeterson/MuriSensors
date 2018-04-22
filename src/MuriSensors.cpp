@@ -1,6 +1,10 @@
 #include "MuriSensors.h"
-AbstractSensor::~AbstractSensor(){}
 
+//these functions have to be declared for the vector to work
+AbstractSensor::~AbstractSensor(){}
+void AbstractSensor::update(){}
+
+//template class functions
 template<class sensor_data_format> void Sensor<sensor_data_format>::sendCommand(){}
 template<class sensor_data_format> void Sensor<sensor_data_format>::init(){}
 template<class sensor_data_format> void Sensor<sensor_data_format>::update(){}
@@ -32,6 +36,8 @@ void Accelerometer::update(){
 int * Accelerometer::getData(){return Data;}    
 
 
+//temperature sensor functions
+
 temperatureSensor::temperatureSensor(char* Name, int Pin, int Delay, String *temperature){
     temperature = &Data;
     this -> Name = Name;
@@ -51,6 +57,9 @@ void temperatureSensor::update(){
       }
     }
 String temperatureSensor::getData(){return Data;}
+
+
+//GPS functions
 
 
 GPS::GPS(char * Name, HardwareSerial * port, int baud){

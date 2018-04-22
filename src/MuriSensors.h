@@ -8,6 +8,7 @@
 #include <TinyGPS++.h>
 struct AbstractSensor{
 	virtual ~AbstractSensor() = 0;
+	virtual void update() = 0;
 };
 template <class sensor_data_format>class Sensor: public AbstractSensor {
   protected:
