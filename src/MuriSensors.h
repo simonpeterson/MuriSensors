@@ -66,7 +66,7 @@ class GPS_sensor: public Sensor<String>{
       //change to software serial if using software serial
       HardwareSerial * port;
       int baud;
-      GPS_sensor(char * Name, HardwareSerial * port, int baud, TinyGPSPlus GPS);
+      GPS_sensor(char * Name, HardwareSerial * port, int baud, TinyGPSPlus * GPS);
       void init();
       
     private:
