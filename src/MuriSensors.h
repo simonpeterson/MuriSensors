@@ -62,7 +62,7 @@ class temperatureSensor: public Sensor<String>{
 class GPS_sensor: public Sensor<String>{
   public:
       ~GPS_sensor();
-      TinyGPSPlus GPS;
+      TinyGPSPlus * GPS;
       //change to software serial if using software serial
       HardwareSerial * port;
       int baud;
